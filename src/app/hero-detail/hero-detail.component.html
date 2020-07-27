@@ -1,0 +1,20 @@
+<!-- When selectedHero is undefined, the ngIf removes the hero detail from the DOM. There are no selectedHero bindings to consider. -->
+<!-- https://angular.io/tutorial/toh-pt2#the-fix---hide-empty-details-with-ngif -->
+<div *ngIf="hero">
+  <!-- The word uppercase in the interpolation binding, right after the pipe operator ( | ), activates the built-in UppercasePipe. -->
+  <!-- https://angular.io/tutorial/toh-pt1#format-with-the-uppercasepipe -->
+  <h2>{{ hero.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{ hero.id }}</div>
+  <div>
+    <label
+      >name:
+      <input [(ngModel)]="hero.name" placeholder="name" />
+      <!-- [(ngModel)] is Angular's two-way data binding syntax.
+      Here it binds the hero.name property to the HTML textbox so that data can flow in both directions:
+      from the hero.name property to the textbox, and from the textbox back to the hero.name. -->
+      <!-- https://angular.io/tutorial/toh-pt1#two-way-binding -->
+    </label>
+  </div>
+</div>
+<button (click)="goBack()">go back</button>
+<button (click)="save()">save</button>
